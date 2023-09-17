@@ -8,8 +8,7 @@ db = SQLAlchemy()
 
 app = Flask(__name__)
 app.config.from_mapping(
-    SQLALCHEMY_DATABASE_URI=f"postgresql://{os.getenv('DB_USER')}:{os.getenv(
-        'DB_PASSWORD')}@db:5432/{os.getenv('DB_NAME')}",
+    SQLALCHEMY_DATABASE_URI=f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@db:5432/{os.getenv('DB_NAME')}",
     SQLALCHEMY_TRACK_MODIFICATIONS=False,
 )
 
