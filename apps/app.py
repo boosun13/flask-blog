@@ -1,4 +1,3 @@
-from pathlib import Path
 from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
@@ -15,7 +14,6 @@ app.config.from_mapping(
 # DB migration
 db.init_app(app)
 Migrate(app, db)
-
 
 @app.route("/")
 def hello_world():
