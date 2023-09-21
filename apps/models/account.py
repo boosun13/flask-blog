@@ -10,3 +10,8 @@ class Account(db.Model):
     id = db.Column(db.String(26), primary_key=True, default=str(ULID()))
     joined_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone('Asia/Tokyo')), comment='登録日時')
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone('Asia/Tokyo')))
+
+    # relationships 
+    users = db.relationship('User', backref='account', lazy=True, uselist=True)
+    current_user = db.relationship('User', backref='account', lazy=True, uselist=False, order_by='desc(User.id)')
+    account_deletion = db.relationship('AccountDeletion', backref='account', lazy=True, uselist=False)

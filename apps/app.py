@@ -17,6 +17,8 @@ db.init_app(app)
 Migrate(app, db)
 
 from apps.models.account import Account
+# from apps.models.user import User
+from apps.models.account_deletion import AccountDeletion
 
 @app.route("/")
 def hello_world():
