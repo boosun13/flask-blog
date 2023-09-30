@@ -1,7 +1,6 @@
 from flask import Flask, request
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from pytz import timezone
 import os
 
 db = SQLAlchemy()
@@ -18,6 +17,10 @@ app.config.from_mapping(
 # DB migration
 db.init_app(app)
 Migrate(app, db)
+
+from apps.cli import seed_db_command
+
+app.cli.add_command(seed_db_command)
 
 from apps.models.account import Account
 from apps.models.account_deletion import AccountDeletion
