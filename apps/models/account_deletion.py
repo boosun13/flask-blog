@@ -13,4 +13,4 @@ class AccountDeletion(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone('Asia/Tokyo')))
 
     # relationships
-    account = db.relationship('Account', backref='account_deletion', lazy=True, uselist=False)
+    account = db.relationship('Account', back_populates='account_deletion', lazy=True, uselist=False)

@@ -14,5 +14,5 @@ class User(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone('Asia/Tokyo')))
 
     # relationships
-    account = db.relationship('Account', backref='user', lazy=True, uselist=False)
+    account = db.relationship('Account', back_populates='users', lazy=True, uselist=False)
 

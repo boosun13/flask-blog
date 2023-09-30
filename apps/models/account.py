@@ -12,6 +12,6 @@ class Account(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone('Asia/Tokyo')))
 
     # relationships 
-    users = db.relationship('User', backref='account', lazy=True, uselist=True)
-    current_user = db.relationship('User', backref='account', lazy=True, uselist=False, order_by='desc(User.id)')
-    account_deletion = db.relationship('AccountDeletion', backref='account', lazy=True, uselist=False)
+    users = db.relationship('User', back_populates='account', lazy=True, uselist=True)
+    current_user = db.relationship('User', back_populates='account', lazy=True, uselist=False, order_by='desc(User.id)')
+    account_deletion = db.relationship('AccountDeletion', back_populates='account', lazy=True, uselist=False)
