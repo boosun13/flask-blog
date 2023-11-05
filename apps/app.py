@@ -32,6 +32,12 @@ def current_account():
 
     return f'<p>{account.id}</p>'
 
+@app.route('/ping')
+def ping():
+    account = Account.query.first()
+
+    return account.current_user.json()
+
 
 @app.route('/account/<id>')
 def account(id):
